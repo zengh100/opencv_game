@@ -19,6 +19,7 @@ thickness = -1
 while(1):   
     # Using cv2.circle() method 
     # Draw a circle of red color of thickness -1 px 
+    cv2.circle(img, (center_x, center_y), radius, (0,0,0), thickness) 
     center_x += 1
     center_y += 1 
     cv2.circle(img, (center_x, center_y), radius, color, thickness) 
