@@ -24,13 +24,13 @@ while(1):
     cv2.circle(img, (center_x, center_y), radius, (0,0,0), thickness) 
     center_x += x_speed
     center_y += y_speed
-    if(center_x>=512): 
+    if(center_x+radius>=512): 
         x_speed = -1
-    if(center_x<=0): 
+    if(center_x-radius<=0): 
         x_speed = 1
-    if(center_y>=512): 
+    if(center_y+radius>=512): 
         y_speed = -1
-    if(center_y<=0): 
+    if(center_y-radius<=0): 
         y_speed = 1
 
     cv2.circle(img, (center_x, center_y), radius, color, thickness) 
