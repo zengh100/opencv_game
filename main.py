@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
-x_max = 768
-img = np.zeros((512, x_max,3))
+width = 768
+img = np.zeros((512, width,3))
 
 # Center coordinates 
 center_x = 120
@@ -25,7 +25,7 @@ while(1):
     cv2.circle(img, (center_x, center_y), radius, (0,0,0), thickness) 
     center_x += x_speed
     center_y += y_speed
-    if(center_x+radius>=x_max): 
+    if(center_x+radius>=width): 
         x_speed = -7
     if(center_x-radius<=0): 
         x_speed = 7
