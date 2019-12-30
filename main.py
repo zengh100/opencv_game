@@ -16,12 +16,23 @@ color = (0, 0, 255)
 # Line thickness of -1 px 
 thickness = -1
 
+x_speed = 1
+y_speed = 1
 while(1):   
     # Using cv2.circle() method 
     # Draw a circle of red color of thickness -1 px 
     cv2.circle(img, (center_x, center_y), radius, (0,0,0), thickness) 
-    center_x += 1
-    center_y += 1 
+    center_x += x_speed
+    center_y += y_speed
+    if(center_x>=512): 
+        x_speed = -1
+    if(center_x<=0): 
+        x_speed = 1
+    if(center_y>=512): 
+        y_speed = -1
+    if(center_y<=0): 
+        y_speed = 1
+
     cv2.circle(img, (center_x, center_y), radius, color, thickness) 
     cv2.imshow("black image", img)
     key = cv2.waitKey(33) #0:  wait for infinitely
