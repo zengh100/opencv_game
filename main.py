@@ -1,7 +1,9 @@
 import numpy as np
 import cv2
+
+height = 512
 width = 768
-img = np.zeros((512, width,3))
+image_org = np.zeros((height, width, 3))
 
 # Center coordinates 
 center_x = 120
@@ -19,24 +21,25 @@ thickness = -1
 
 x_speed = 3
 y_speed = 3
-while(1):   
-    # Using cv2.circle() method 
-    # Draw a circle of red color of thickness -1 px 
-    cv2.circle(img, (center_x, center_y), radius, (0,0,0), thickness) 
-    center_x += x_speed
-    center_y += y_speed
-    if(center_x+radius>=width): 
-        x_speed = -7
-    if(center_x-radius<=0): 
-        x_speed = 7
-    if(center_y+radius>=512): 
-        y_speed = -7
-    if(center_y-radius<=0): 
-        y_speed = 7
 
-    cv2.circle(img, (center_x, center_y), radius, color, thickness) 
-    cv2.imshow("black image", img)
+key = 0
+while(key != 27):   
+    # Using cv2.circle() method 
+    # Draw a circle of red color of thickness -1 px
+    image = image_org.copy()
+    cv2.circle(image, (center_x, center_y), radius, color, thickness) 
+    cv2.imshow("black image", image)
+    center_x += x_speed
+    center_y += y_speed    
+    if(center_x+radius>=width): 
+        x_speed = -3
+    if(center_x-radius<=0): 
+        x_speed = 3
+    if(center_y+radius>=512): 
+        y_speed = -3
+    if(center_y-radius<=0): 
+        y_speed = 3
+        
     key = cv2.waitKey(33) #0:  wait for infinitely
-    if(key == 27): 
-        break
+
 cv2.destroyAllWindows()
